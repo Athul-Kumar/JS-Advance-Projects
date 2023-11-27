@@ -17,12 +17,13 @@ function getDataResults(title,url,author){
 
 function generateData(){
 
-    let fetchData = fetch('https://meme-api.com/gimme/wholesomememes');
+    const MEME_API = 'https://meme-api.com/gimme/wholesomememes'
+    let fetchData = fetch(MEME_API);
     fetchData
     .then((rawData)=> rawData.json())
-    .then((data)=>{
-        getDataResults(data.title,data.url,data.author)
-    })
+    .then((data)=> getDataResults(data.title,data.url,data.author))
+        
+    
 }
 
 generateBtn.addEventListener('click', generateData);
